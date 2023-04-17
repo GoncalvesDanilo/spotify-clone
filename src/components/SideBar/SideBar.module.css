@@ -1,0 +1,88 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  background-color: black;
+  height: 100%;
+  max-width: 260px;
+}
+
+.logo {
+  height: 40px;
+  min-height: 40px;
+  width: 131px;
+  margin: 24px 24px 0;
+  color: white;
+}
+
+.options {
+  margin-top: 23px;
+  padding: 0 24px;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  height: 40px;
+}
+
+.option .icon {
+  fill: #b3b3b3;
+}
+
+.option p {
+  margin-left: 16px;
+  font-weight: 700;
+  font-size: 14px;
+  color: #b3b3b3;
+}
+
+.option .iconWrapper {
+  height: 24px;
+  width: 24px;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.option .iconWrapper.plus {
+  background-color: #b3b3b3;
+}
+
+.option .iconWrapper.heart svg {
+  fill: white;
+}
+
+.option .iconWrapper.heart {
+  background: linear-gradient(135deg, #450af5, #c4efd9);
+}
+
+.separator {
+  height: 1px;
+  background-color: #282828;
+  margin: 8px 24px;
+  border: 0;
+}
+
+.playlists {
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  margin-bottom: 24px;
+}
+
+.playlist {
+  height: 32px;
+  min-height: 32px;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+}
+
+.playlist p {
+  color: #b3b3b3;
+}
+
+p {
+  margin: 0;
+}
