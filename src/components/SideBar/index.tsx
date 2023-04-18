@@ -7,7 +7,7 @@ const SideBar = () => {
       <Icons.SpotifyLogo className={styles.logo} />
       <div className={styles.options}>
         <div className={styles.option}>
-          <Icons.House className={styles.icon} />
+          <Icons.HouseActive className={styles.icon} />
           <p>Home</p>
         </div>
         <div className={styles.option}>
@@ -28,7 +28,7 @@ const SideBar = () => {
         </div>
         <div className={styles.option}>
           <div className={styles.iconWrapper + ' ' + styles.heart}>
-            <Icons.Heart />
+            <Icons.HeartActive />
           </div>
           <p>Liked Songs</p>
         </div>

@@ -1,0 +1,134 @@
+.footer {
+  height: var(--footer-height);
+  width: 100%;
+  background-color: #181818;
+  border-top: 1px solid #282828;
+  display: flex;
+}
+
+.song {
+  display: flex;
+  align-items: center;
+  width: 30%;
+  max-width: 30%;
+  margin-left: 12px;
+}
+
+.song img {
+  height: 56px;
+  width: 56px;
+}
+
+.song .songInfo {
+  margin-left: 12px;
+}
+
+.songInfo .name {
+  color: white;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.songInfo .artist {
+  color: #b3b3b3;
+  font-size: 11px;
+}
+
+.action .like {
+  height: 32px;
+  width: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 26px;
+}
+
+.action .like .icon {
+  fill: #1ed760;
+  height: 16px;
+  width: 16px;
+}
+
+.controls {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.controls .buttons {
+  display: flex;
+}
+
+.controls .buttons .button,
+.actions .button {
+  height: 32px;
+  width: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 6px;
+}
+
+.controls .buttons .button svg,
+.actions .button svg {
+  fill: #ffffffb3;
+  height: 16px;
+  width: 16px;
+}
+
+.controls .buttons .button.playPause {
+  background-color: white;
+  border-radius: 50%;
+}
+
+.controls .buttons .button.playPause svg {
+  fill: black;
+}
+
+.controls .timeline {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.controls .timeline .currentTime,
+.controls .timeline .endTime {
+  color: #a7a7a7;
+  font-size: 11px;
+  margin: 0 6px;
+}
+
+.timeline .progressBar {
+  width: 80%;
+}
+
+.timeline .progressBar > div {
+  height: 4px;
+  border-radius: 2px;
+  background-color: #ffffff4d;
+  width: 100%;
+}
+
+.actions {
+  width: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-right: 12px;
+}
+
+.actions .button {
+  margin: 0;
+}
+
+.actions .volumeBar {
+  width: 90px;
+  height: 4px;
+  border-radius: 2px;
+  background-color: #ffffff4d;
+  margin-right: 4px;
+}

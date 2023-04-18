@@ -4,13 +4,23 @@
     url('../assets/fonts/Gotham-Light.otf') format('opentype') font-weight-normal;
 }
 
+:root {
+  --footer-height: 90px;
+  --side-bar-height: calc(100% - var(--footer-height) - 1px);
+}
+
 html,
 body {
   height: 100%;
 }
 
+html {
+  overflow: hidden;
+}
+
 body {
   margin: 0;
+  overflow: auto;
   font-family: 'Gotham', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell',
     'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
