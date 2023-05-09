@@ -11,23 +11,37 @@
   height: 40px;
   min-height: 40px;
   width: 131px;
-  margin: 20px 20px 0;
+  margin: 24px 24px 0;
   color: white;
 }
 
 .options {
   margin-top: 23px;
-  padding: 0 20px;
 }
 
 .option {
   display: flex;
   align-items: center;
   height: 40px;
+  padding: 0 24px;
 }
 
 .option .icon {
   fill: #b3b3b3;
+  transition: fill .2s linear;
+}
+
+.option:hover {
+  cursor: pointer;
+}
+
+.option:hover p {
+  color: white;
+  cursor: pointer;
+}
+
+.option:hover .icon {
+  fill: white;
 }
 
 .option p {
@@ -35,6 +49,7 @@
   font-weight: 700;
   font-size: 14px;
   color: #b3b3b3;
+  transition: color .2s linear;
 }
 
 .option .iconWrapper {
@@ -44,10 +59,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  opacity: .7;
+  transition: opacity .2s linear;
 }
 
 .option .iconWrapper.plus {
-  background-color: #b3b3b3;
+  background-color: white;
 }
 
 .option .iconWrapper.heart svg {
@@ -58,10 +75,14 @@
   background: linear-gradient(135deg, #450af5, #c4efd9);
 }
 
+.option:hover .iconWrapper {
+  opacity: 1;
+}
+
 .separator {
   height: 1px;
   background-color: #282828;
-  margin: 8px 20px;
+  margin: 8px 24px;
   border: 0;
 }
 
@@ -69,16 +90,31 @@
   display: flex;
   flex-direction: column;
   overflow-y: scroll;
-  margin-bottom: 20px;
+  margin-bottom: 8px;
   scroll-behavior: smooth;
+}
+
+.playlists::-webkit-scrollbar {
+  width: 8px;
+}
+
+.playlists:hover::-webkit-scrollbar-thumb {
+  display: block;
+  background: #b3b3b3b3;
+  border-radius: 10px;
 }
 
 .playlist {
   height: 32px;
   min-height: 32px;
-  padding: 0 20px;
+  padding: 0 24px;
   display: flex;
   align-items: center;
+}
+
+.playlist:hover p {
+  color: white;
+  cursor: default;
 }
 
 .playlist p {
