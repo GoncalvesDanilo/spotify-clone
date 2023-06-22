@@ -11,12 +11,13 @@
   align-items: center;
   width: 30%;
   max-width: 30%;
-  margin-left: 12px;
+  margin-left: 16px;
 }
 
 .song img {
   height: 56px;
   width: 56px;
+  border-radius: 4px;
 }
 
 .song .songInfo {
@@ -34,6 +35,12 @@
   font-size: 11px;
 }
 
+.songInfo .name:hover,
+.songInfo .artist:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 .action .like {
   height: 32px;
   width: 32px;
@@ -44,9 +51,16 @@
 }
 
 .action .like .icon {
-  fill: #1ed760;
   height: 16px;
   width: 16px;
+}
+
+.action .like .icon.active {
+  fill: #1ed760;
+}
+
+.action .like:hover {
+  cursor: pointer;
 }
 
 .controls {
@@ -69,6 +83,7 @@
   align-items: center;
   justify-content: center;
   margin: 0 6px;
+  position: relative;
 }
 
 .controls .buttons .button svg,
@@ -78,13 +93,46 @@
   width: 16px;
 }
 
+.controls .buttons .button:hover svg,
+.actions .button:hover svg {
+  fill: white;
+}
+
+.controls .buttons .button:hover,
+.actions .button:hover {
+  cursor: pointer;
+}
+
+.controls .buttons .button.active svg,
+.actions .button.active svg {
+  fill: #1ed760;
+}
+
+.controls .buttons .button.active::after,
+.actions .button.active::after {
+  content: '';
+  position: absolute;
+  height: 4px;
+  width: 4px;
+  border-radius: 50%;
+  background-color: #1ed760;
+}
+
 .controls .buttons .button.playPause {
   background-color: white;
   border-radius: 50%;
 }
 
+.controls .buttons .button.playPause:hover {
+  cursor: pointer;
+}
+
 .controls .buttons .button.playPause svg {
   fill: black;
+}
+
+.controls .buttons .button.next svg {
+  transform: rotate(180deg);
 }
 
 .controls .timeline {
@@ -102,15 +150,8 @@
   margin: 0 6px;
 }
 
-.timeline .progressBar {
+.timeline .slider {
   width: 80%;
-}
-
-.timeline .progressBar > div {
-  height: 4px;
-  border-radius: 2px;
-  background-color: #ffffff4d;
-  width: 100%;
 }
 
 .actions {
@@ -118,7 +159,7 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  margin-right: 12px;
+  margin-right: 16px;
 }
 
 .actions .button {
@@ -127,8 +168,4 @@
 
 .actions .volumeBar {
   width: 90px;
-  height: 4px;
-  border-radius: 2px;
-  background-color: #ffffff4d;
-  margin-right: 4px;
 }
