@@ -1,0 +1,30 @@
+.slider {
+  position: relative;
+
+  --progress-width: 50%;
+}
+
+.slider .bar {
+  height: 4px;
+  border-radius: 2px;
+  background-color: #ffffff4d;
+  width: 100%;
+  margin: 0;
+}
+
+.slider .progress {
+  height: 100%;
+  width: var(--progress-width);
+  background-color: #1ed760;
+  border-radius: 2px;
+}
+
+.slider .thumb {
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  background-color: white;
+  position: absolute;
+  top: -3px;
+  left: calc(var(--progress-width) - 5px);
+}
