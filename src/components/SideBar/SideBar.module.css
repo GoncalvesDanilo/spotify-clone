@@ -6,6 +6,10 @@
   max-width: 330px;
 }
 
+.sidebar.collapsed {
+  max-width: 72px;
+}
+
 .logo {
   height: 40px;
   min-height: 40px;
@@ -217,7 +221,7 @@
   overflow-y: scroll;
   scroll-behavior: smooth;
   flex: 1 1 auto;
-  padding: 0 4px 0 16px;
+  padding: 0 4px 0 8px;
 }
 
 .playlists::-webkit-scrollbar {
@@ -230,11 +234,28 @@
   border-radius: 10px;
 }
 
+.sidebar.collapsed .playlists {
+  padding: 0 4px;
+}
+
+.sidebar.collapsed .playlists::-webkit-scrollbar {
+  width: 0;
+}
+
 .playlist {
-  width: 100%;
   display: flex;
   align-items: center;
-  padding: 8px 0;
+  padding: 8px;
+}
+
+.playlist:hover {
+  cursor: pointer;
+  background-color: #ffffff0a;
+  border-radius: 6px;
+}
+
+.sidebar.collapsed .playlist {
+  justify-content: center;
 }
 
 .playlist .image {
