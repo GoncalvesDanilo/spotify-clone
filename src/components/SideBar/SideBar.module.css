@@ -3,7 +3,6 @@
   flex-direction: column;
   background-color: black;
   height: 100%;
-  max-height: var(--side-bar-height);
   max-width: 330px;
 }
 
@@ -90,7 +89,9 @@
   display: flex;
   flex-direction: column;
   flex: 1 1 auto;
-  padding: 8px 16px;
+  padding: unset;
+  margin-bottom: unset;
+  min-height: 70%;
 }
 
 .library .header {
@@ -99,7 +100,7 @@
   justify-content: space-between;
   flex-direction: row;
   margin-bottom: 8px;
-  padding-left: 8px;
+  padding: 8px 16px 0 24px;
 }
 
 .library .header p {
@@ -113,7 +114,7 @@
 }
 
 .library .header .actions .action,
-.library .filters .search .iconWrapper {
+.library .search .iconWrapper {
   padding: 8px;
   display: flex;
   align-items: center;
@@ -121,7 +122,7 @@
 }
 
 .library .header .actions .action:hover,
-.library .filters .search:hover {
+.library .search:hover {
   cursor: pointer;
   transition: fill .2s linear;
   background-color: #ffffff1a;
@@ -129,7 +130,7 @@
 }
 
 .library .header .actions .action:hover .icon,
-.library .filters .search:hover .icon {
+.library .search:hover .icon {
   fill: white;
 }
 
@@ -137,73 +138,76 @@
   margin-left: 12px;
 }
 
-.library .filters {
-  width: 100%;
-  overflow: scroll;
-}
-
-.library .filters .container,
-.filters .searchContainer {
+.library .filters,
+.searchContainer {
   display: flex;
   flex-direction: row;
-  width: max-content;
   gap: 8px;
   padding: 8px 0;
 }
 
-.library .filters .filter {
+.library .filters {
+  overflow: scroll;
+  padding: 8px 16px;
+  min-height: 32px;
+}
+
+.library .filter {
   display: flex;
   align-items: center;
+  height: 32px;
   background-color: #ffffff12;
   border-radius: 32px;
 }
 
-.library .filters .filter:hover {
+.library .filter:hover {
   cursor: pointer;
   background-color: #ffffff1a;
 }
 
-.filters .filter p {
+.filter p {
   color: white;
   padding: 8px 12px;
   font-size: 14px;
+  white-space: nowrap;
 }
 
-.filters .searchContainer {
+.searchContainer {
   width: unset;
-  padding: 1px 7px 0 0;
+  padding: 1px 24px 0 16px;
   justify-content: space-between;
+  margin-bottom: 8px;
 }
 
-.filters .search .icon,
-.filters .sort .icon {
+.search .icon,
+.sort .icon {
   fill: #ffffffb3;
   height: 17px;
   width: 17px;
 }
 
-.filters .sort,
-.filters .search {
+.sort,
+.search {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
 }
 
-.filters .sort p {
+.sort p {
   color: #ffffffb2;
   font-size: 13px;
 }
 
-.filters .sort:hover {
+.sort:hover {
   cursor: pointer;
 }
 
-.filters .sort:hover p {
+.sort:hover p {
   color: white;
 }
 
-.filters .sort:hover .icon {
+.sort:hover .icon {
   fill: white;
 }
 
@@ -211,9 +215,9 @@
   display: flex;
   flex-direction: column;
   overflow-y: scroll;
-  margin-bottom: 8px;
   scroll-behavior: smooth;
   flex: 1 1 auto;
+  padding: 0 4px 0 16px;
 }
 
 .playlists::-webkit-scrollbar {
@@ -222,14 +226,15 @@
 
 .playlists:hover::-webkit-scrollbar-thumb {
   display: block;
-  background: #b3b3b3b3;
+  background: #ffffff4d;
   border-radius: 10px;
 }
 
 .playlist {
   width: 100%;
   display: flex;
-  margin-top: 16px;
+  align-items: center;
+  padding: 8px 0;
 }
 
 .playlist .image {
@@ -249,7 +254,8 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 2px 12px;
+  height: 44px;
+  padding: 0 12px;
 }
 
 .playlist .info .name {

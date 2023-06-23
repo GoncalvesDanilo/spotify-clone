@@ -31,30 +31,28 @@ const SideBar = () => {
           </div>
         </div>
         <div className={styles.filters}>
-          <div className={styles.container}>
-            <div className={styles.filter}>
-              <p>Playlists</p>
-            </div>
-            <div className={styles.filter}>
-              <p>Artists</p>
-            </div>
-            <div className={styles.filter}>
-              <p>Albums</p>
-            </div>
-            <div className={styles.filter}>
-              <p>Podcasts & Shows</p>
+          <div className={styles.filter}>
+            <p>Playlists</p>
+          </div>
+          <div className={styles.filter}>
+            <p>Artists</p>
+          </div>
+          <div className={styles.filter}>
+            <p>Albums</p>
+          </div>
+          <div className={styles.filter}>
+            <p>Podcasts & Shows</p>
+          </div>
+        </div>
+        <div className={styles.searchContainer}>
+          <div className={styles.search}>
+            <div className={styles.iconWrapper}>
+              <Icons.Search className={styles.icon} />
             </div>
           </div>
-          <div className={styles.searchContainer}>
-            <div className={styles.search}>
-              <div className={styles.iconWrapper}>
-                <Icons.Search className={styles.icon} />
-              </div>
-            </div>
-            <div className={styles.sort}>
-              <p>Recents</p>
-              <Icons.DropdownArrow className={styles.icon} />
-            </div>
+          <div className={styles.sort}>
+            <p>Recents</p>
+            <Icons.DropdownArrow className={styles.icon} />
           </div>
         </div>
         <div className={styles.playlists}>
