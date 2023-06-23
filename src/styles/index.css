@@ -6,7 +6,7 @@
 
 :root {
   --footer-height: 90px;
-  --side-bar-height: calc(100% - var(--footer-height) - 1px);
+  --pages-height: calc(100% - var(--footer-height) - 17px);
 }
 
 html,

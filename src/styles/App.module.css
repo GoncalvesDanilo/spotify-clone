@@ -2,3 +2,9 @@
   height: 100%;
   background-color: black;
 }
+
+.app .pages {
+  padding: 8px;
+  height: 100%;
+  max-height: var(--pages-height);
+}

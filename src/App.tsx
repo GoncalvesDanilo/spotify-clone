@@ -6,7 +6,9 @@ import styles from './styles/App.module.css';
 function App() {
   return (
     <div className={styles.app}>
-      <SideBar />
+      <div className={styles.pages}>
+        <SideBar />
+      </div>
       <Footer />
     </div>
   );
