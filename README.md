@@ -4,7 +4,9 @@ This project is a Spotify UI clone, which aims to recreate the user interface of
 
 ## Preview
 
-Coming Soon!
+> ⚠️ Work in Progress!
+
+[Click here to open the Preview](https://spotify-clone-pearl-six.vercel.app/)
 
 ## Running locally
 
