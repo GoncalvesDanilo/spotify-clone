@@ -20,6 +20,8 @@ import { ReactComponent as Volume } from '../../assets/icons/volume.svg';
 import { ReactComponent as FullScreen } from '../../assets/icons/fullscreen.svg';
 import { ReactComponent as Arrow } from '../../assets/icons/arrow.svg';
 import { ReactComponent as DropdownArrow } from '../../assets/icons/dropdownArrow.svg';
+import { ReactComponent as Cross } from '../../assets/icons/cross.svg';
+import { ReactComponent as SimpleArrow } from '../../assets/icons/simpleArrow.svg';
 
 const Icons = {
   SpotifyLogo,
@@ -44,6 +46,8 @@ const Icons = {
   FullScreen,
   Arrow,
   DropdownArrow,
+  Cross,
+  SimpleArrow,
 };
 
 export default Icons;

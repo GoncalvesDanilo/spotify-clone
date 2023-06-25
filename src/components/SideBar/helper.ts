@@ -1,3 +1,5 @@
+import { Filter } from '../FilterArray';
+
 export const playlists: Array<{ name: string; type: string; image: string; detail: string }> = [
   {
     name: 'Liked Songs',
@@ -71,4 +73,11 @@ export const playlists: Array<{ name: string; type: string; image: string; detai
     image: 'https://i.scdn.co/image/ab67706c0000f8e4c022408984752312bba52d88',
     detail: 'Danilo Gonçalves',
   },
+];
+
+export const filters: Array<Filter> = [
+  { label: 'Playlists', value: 'playlists' },
+  { label: 'Artists', value: 'artists' },
+  { label: 'Albums', value: 'albums' },
+  { label: 'Podcasts & Shows', value: 'podcasts' },
 ];

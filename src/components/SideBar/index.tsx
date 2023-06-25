@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Icons from '../Icons';
-import { playlists } from './helper';
+import FilterArray from '../FilterArray';
+import { playlists, filters } from './helper';
 
 import styles from './SideBar.module.css';
 
@@ -42,20 +43,7 @@ const SideBar = () => {
         </div>
         {!collapsed && (
           <>
-            <div className={styles.filters}>
-              <div className={styles.filter}>
-                <p>Playlists</p>
-              </div>
-              <div className={styles.filter}>
-                <p>Artists</p>
-              </div>
-              <div className={styles.filter}>
-                <p>Albums</p>
-              </div>
-              <div className={styles.filter}>
-                <p>Podcasts & Shows</p>
-              </div>
-            </div>
+            <FilterArray filters={filters} />
             <div className={styles.searchContainer}>
               <div className={styles.search}>
                 <div className={styles.iconWrapper}>

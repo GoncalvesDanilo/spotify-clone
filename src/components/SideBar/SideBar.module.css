@@ -142,38 +142,11 @@
   margin-left: 12px;
 }
 
-.library .filters,
 .searchContainer {
   display: flex;
   flex-direction: row;
   gap: 8px;
   padding: 8px 0;
-}
-
-.library .filters {
-  overflow: scroll;
-  padding: 8px 16px;
-  min-height: 32px;
-}
-
-.library .filter {
-  display: flex;
-  align-items: center;
-  height: 32px;
-  background-color: #ffffff12;
-  border-radius: 32px;
-}
-
-.library .filter:hover {
-  cursor: pointer;
-  background-color: #ffffff1a;
-}
-
-.filter p {
-  color: white;
-  padding: 8px 12px;
-  font-size: 14px;
-  white-space: nowrap;
 }
 
 .searchContainer {
