@@ -117,24 +117,21 @@
   gap: 8px;
 }
 
-.library .header .actions .action,
-.library .search .iconWrapper {
+.library .header .actions .action {
   padding: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.library .header .actions .action:hover,
-.library .search:hover {
+.library .header .actions .action:hover {
   cursor: pointer;
   transition: fill .2s linear;
   background-color: #ffffff1a;
   border-radius: 50%;
 }
 
-.library .header .actions .action:hover .icon,
-.library .search:hover .icon {
+.library .header .actions .action:hover .icon {
   fill: white;
 }
 
@@ -156,15 +153,13 @@
   margin-bottom: 8px;
 }
 
-.search .icon,
 .sort .icon {
   fill: #ffffffb3;
   height: 17px;
   width: 17px;
 }
 
-.sort,
-.search {
+.sort {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -194,7 +189,7 @@
   overflow-y: scroll;
   scroll-behavior: smooth;
   flex: 1 1 auto;
-  padding: 0 4px 0 8px;
+  padding: 0 4px 8px 8px;
 }
 
 .playlists::-webkit-scrollbar {
@@ -208,7 +203,7 @@
 }
 
 .sidebar.collapsed .playlists {
-  padding: 0 4px;
+  padding: 0 4px 4px;
 }
 
 .sidebar.collapsed .playlists::-webkit-scrollbar {

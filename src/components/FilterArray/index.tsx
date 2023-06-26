@@ -1,29 +1,89 @@
 import React from 'react';
-import styles from './FilterArray.module.css';
 import Icons from '../Icons';
+import {
+  Filter,
+  FilterTypes,
+  SCROLL_DIFF_MULTIPLIER,
+  ScrollState,
+  TypedFilter,
+  isFilterSelected,
+  setTypes,
+} from './helper';
 
-export type Filter = {
-  value: string;
-  label: string;
-};
+import styles from './FilterArray.module.css';
 
 type FilterArrayProps = {
   filters: Array<Filter>;
-  onFilterClick?: (filter: Filter) => void;
+  secondaryFilters?: { parent: string; filters: Array<Filter> };
+  onChange?: (filter: Filter) => void;
   className?: string;
 };
 
-const FilterArray = ({ filters, onFilterClick, className }: FilterArrayProps) => {
+const FilterArray = ({ filters, secondaryFilters, onChange, className }: FilterArrayProps) => {
   const filtersRef = React.useRef<HTMLDivElement>(null);
-  const [scroll, setScroll] = React.useState({
+  const [displayedFilters, setDisplayedFilters] = React.useState<Array<TypedFilter>>(
+    setTypes(filters, 'primary')
+  );
+  const [selectedFilter, setSelectedFilter] = React.useState<Filter>();
+  const [secondarySelected, setSecondarySelected] = React.useState<Filter>();
+  const [scroll, setScroll] = React.useState<ScrollState>({
     maxScrollValue: 0,
     clickDiff: 0,
     showLeft: false,
     showRight: true,
   });
 
-  const handleFilterClick = (clickedFilter: Filter) => {
-    if (onFilterClick) onFilterClick(clickedFilter);
+  const clearSelected = (type?: FilterTypes) => {
+    if (!type) type = 'primary';
+    let newDisplayedFilters: Array<TypedFilter> = [];
+
+    if (type === 'primary') {
+      newDisplayedFilters = setTypes(filters, type);
+      setSelectedFilter(undefined);
+      setSecondarySelected(undefined);
+    } else if (type === 'secondary' && secondaryFilters) {
+      if (selectedFilter) {
+        newDisplayedFilters = [
+          ...setTypes([selectedFilter], 'primary'),
+          ...setTypes(secondaryFilters?.filters, type),
+        ];
+        setSecondarySelected(undefined);
+      }
+    }
+
+    setDisplayedFilters(newDisplayedFilters);
+  };
+
+  const handleFilterClick = (typedFilter: TypedFilter) => {
+    const { type, filter: clickedFilter } = typedFilter;
+
+    if (type === 'primary') {
+      if (selectedFilter?.value === clickedFilter.value) {
+        clearSelected();
+      } else {
+        setSelectedFilter(clickedFilter);
+        if (secondaryFilters && secondaryFilters.parent === clickedFilter.value) {
+          setDisplayedFilters([
+            { type, filter: clickedFilter },
+            ...setTypes(secondaryFilters.filters, 'secondary'),
+          ]);
+        } else {
+          setDisplayedFilters([{ type, filter: clickedFilter }]);
+        }
+      }
+    } else if (type === 'secondary') {
+      if (secondarySelected?.value === clickedFilter.value) {
+        clearSelected(type);
+      } else {
+        setSecondarySelected(clickedFilter);
+        if (selectedFilter) {
+          setDisplayedFilters([
+            { type: 'primary', filter: selectedFilter },
+            { type, filter: clickedFilter },
+          ]);
+        }
+      }
+    }
   };
 
   const handleScrollClick = (scrollLeft: boolean) => {
@@ -43,6 +103,7 @@ const FilterArray = ({ filters, onFilterClick, className }: FilterArrayProps) =>
   const handleScroll = () => {
     if (!filtersRef.current) return;
     const currentScrollValue = filtersRef.current.scrollLeft;
+
     if (currentScrollValue === 0) {
       setScroll((prev) => ({
         ...prev,
@@ -64,15 +125,32 @@ const FilterArray = ({ filters, onFilterClick, className }: FilterArrayProps) =>
     }
   };
 
+  const filterClassName = (typedFilter: TypedFilter) => {
+    let className = styles.filter;
+
+    if (typedFilter.type === 'secondary') {
+      className += ' ' + styles.secondary;
+    }
+    if (isFilterSelected(typedFilter, selectedFilter, secondarySelected)) {
+      className += ' ' + styles.selected;
+    }
+
+    return className;
+  };
+
   React.useEffect(() => {
     if (!filtersRef.current) return;
     const maxScrollValue = filtersRef.current.scrollWidth - filtersRef.current.clientWidth;
-    const scrollDiff = maxScrollValue / filters.length * 2;
-    setScroll((prev) => ({
-      ...prev,
-      maxScrollValue,
-      clickDiff: scrollDiff,
-    }));
+    const scrollDiff = (maxScrollValue / displayedFilters.length) * SCROLL_DIFF_MULTIPLIER;
+    let updatedScrollState = scroll;
+    setScroll((prev) => {
+      updatedScrollState = {
+        ...prev,
+        maxScrollValue,
+        clickDiff: scrollDiff,
+      };
+      return updatedScrollState;
+    });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -83,11 +161,23 @@ const FilterArray = ({ filters, onFilterClick, className }: FilterArrayProps) =>
         ref={filtersRef}
         onScroll={handleScroll}
       >
-        {filters.map((filter) => (
-          <div className={styles.filter} key={filter.value} onClick={() => handleFilterClick(filter)}>
-            <p>{filter.label}</p>
+        {selectedFilter && (
+          <div className={styles.filter + ' ' + styles.clear} onClick={() => clearSelected()}>
+            <Icons.Cross className={styles.icon} />
           </div>
-        ))}
+        )}
+        {displayedFilters.map((item) => {
+          const className = filterClassName(item);
+          return (
+            <div
+              className={className}
+              key={item.filter.value}
+              onClick={() => handleFilterClick(item)}
+            >
+              <p>{item.filter.label}</p>
+            </div>
+          );
+        })}
       </div>
       <div className={styles.scroll}>
         <div className={styles.left + (!scroll.showLeft ? ' ' + styles.hide : '')}>

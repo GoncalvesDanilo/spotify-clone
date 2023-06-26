@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import Icons from '../Icons';
 import FilterArray from '../FilterArray';
-import { playlists, filters } from './helper';
+import CollapsibleInput from '../CollapsibleInput';
+import { playlists, filters, secondaryFilters } from './helper';
 
 import styles from './SideBar.module.css';
 
@@ -43,13 +44,9 @@ const SideBar = () => {
         </div>
         {!collapsed && (
           <>
-            <FilterArray filters={filters} />
+            <FilterArray filters={filters} secondaryFilters={secondaryFilters} />
             <div className={styles.searchContainer}>
-              <div className={styles.search}>
-                <div className={styles.iconWrapper}>
-                  <Icons.Search className={styles.icon} />
-                </div>
-              </div>
+              <CollapsibleInput placeholder="Search in Your Library" />
               <div className={styles.sort}>
                 <p>Recents</p>
                 <Icons.DropdownArrow className={styles.icon} />

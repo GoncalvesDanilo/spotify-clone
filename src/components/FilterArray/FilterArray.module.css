@@ -36,6 +36,32 @@
   white-space: nowrap;
 }
 
+.filter.selected {
+  background-color: white;
+  z-index: 1;
+}
+
+.filter.selected p {
+  color: black;
+}
+
+.filter.secondary.selected {
+  background-color: #dedede;
+  padding-left: 24px;
+  margin-left: -36px;
+  z-index: 0;
+}
+
+.filter.secondary.selected:hover {
+  transition: background-color .2s linear;
+  background-color: white;
+}
+
+.filter.clear .icon {
+  fill: #b3b3b3;
+  padding: 8px;
+}
+
 .scroll {
   position: absolute;
   display: flex;

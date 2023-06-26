@@ -1,4 +1,4 @@
-import { Filter } from '../FilterArray';
+import { Filter } from '../FilterArray/helper';
 
 export const playlists: Array<{ name: string; type: string; image: string; detail: string }> = [
   {
@@ -81,3 +81,11 @@ export const filters: Array<Filter> = [
   { label: 'Albums', value: 'albums' },
   { label: 'Podcasts & Shows', value: 'podcasts' },
 ];
+
+export const secondaryFilters: { parent: string; filters: Array<Filter> } = {
+  parent: 'playlists',
+  filters: [
+    { label: 'By Spotify', value: 'by-spotify' },
+    { label: 'By you', value: 'you' },
+  ],
+};
