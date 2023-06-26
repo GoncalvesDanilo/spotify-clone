@@ -1,0 +1,63 @@
+.input .iconWrapper {
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.input .iconWrapper:hover {
+  cursor: pointer;
+  transition: fill .2s linear;
+  background-color: #ffffff1a;
+  border-radius: 50%;
+}
+
+.input .iconWrapper:hover .icon {
+  fill: white;
+}
+
+.input .icon {
+  fill: #ffffffb3;
+  height: 17px;
+  width: 17px;
+}
+
+.input {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.input input {
+  display: none;
+}
+
+.input.focused {
+  background-color: #ffffff1a;
+  width: 100%;
+  justify-content: flex-start;
+  border-radius: 4px;
+  gap: 0;
+  transition: cubic-bezier(.3,0,.4,1) .3s all;
+  -webkit-transition: cubic-bezier(.3, 0, .4, 1) .3s all;
+}
+
+.input.focused input {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: #ffffffb3;
+}
+
+.input.focused .iconWrapper:hover {
+  background-color: transparent;
+}
+
+.input.focused .iconWrapper:hover .icon {
+  fill: #ffffffb3;
+}
