@@ -47,7 +47,7 @@
   display: block;
   width: 100%;
   height: 100%;
-  padding: 0;
+  padding: 0 8px 0 0;
   background-color: transparent;
   border: none;
   outline: none;
@@ -56,6 +56,7 @@
 
 .input.focused .iconWrapper:hover {
   background-color: transparent;
+  cursor: default;
 }
 
 .input.focused .iconWrapper:hover .icon {
