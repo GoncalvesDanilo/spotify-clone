@@ -1,0 +1,51 @@
+.search {
+  width: 100%;
+  height: 100%;
+  margin-left: 8px;
+  background-color: #121212;
+  border-radius: 8px;
+}
+
+.search .header {
+  display: flex;
+  padding: 8px 24px 16px;
+  gap: 8px;
+}
+
+.header .history {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 0;
+}
+
+.history .action {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #000000b3;
+  border-radius: 50%;
+}
+
+.history .action .icon {
+  fill: white;
+}
+
+.history .action:first-of-type .icon {
+  transform: rotate(180deg);
+}
+
+.history .action:hover {
+  cursor: pointer;
+}
+
+.search .categories {
+  padding: 0 24px;
+}
+
+.search .categories h1 {
+  color: white;
+  font-size: 26px;
+}
