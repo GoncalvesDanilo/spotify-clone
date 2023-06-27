@@ -1,0 +1,88 @@
+.dropdown {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.dropdown .selected .icon {
+  fill: #ffffffb3;
+  height: 17px;
+  width: 17px;
+}
+
+.dropdown .selected {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.dropdown .selected p {
+  color: #ffffffb2;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.dropdown .selected:hover {
+  cursor: pointer;
+}
+
+.dropdown .selected:hover p {
+  color: white;
+}
+
+.dropdown .selected:hover .icon {
+  fill: white;
+}
+
+.dropdown .options {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  z-index: 999;
+  min-width: 152px;
+  top: 40px;
+  left: -10px;
+  background-color: #282828;
+  border-radius: 4px;
+  padding: 4px;
+}
+
+.dropdown .options .header,
+.dropdown .options .option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 40px;
+  padding: 0 8px 0 12px;
+}
+
+.dropdown .options .header p {
+  color: #b3b3b3;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.dropdown .options .option {
+  display: flex;
+}
+
+.dropdown .options .option:hover {
+  cursor: default;
+  background-color: #ffffff1a;
+  border-radius: 2px;
+}
+
+.dropdown .options .option p {
+  color: #ffffffe6;
+  font-size: 14px;
+}
+
+.dropdown .option.selected p {
+  color: #1ed760;
+}
+
+.dropdown .option.selected .icon {
+  fill: #1ed760;
+}

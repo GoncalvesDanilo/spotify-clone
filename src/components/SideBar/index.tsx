@@ -2,7 +2,8 @@ import { useState } from 'react';
 import Icons from '../Icons';
 import FilterArray from '../FilterArray';
 import CollapsibleInput from '../CollapsibleInput';
-import { playlists, filters, secondaryFilters } from './helper';
+import Dropdown from '../Dropdown';
+import { playlists, filters, secondaryFilters, sortDropdownOptions } from './helper';
 
 import styles from './SideBar.module.css';
 
@@ -47,10 +48,7 @@ const SideBar = () => {
             <FilterArray filters={filters} secondaryFilters={secondaryFilters} />
             <div className={styles.searchContainer}>
               <CollapsibleInput placeholder="Search in Your Library" />
-              <div className={styles.sort}>
-                <p>Recents</p>
-                <Icons.DropdownArrow className={styles.icon} />
-              </div>
+              <Dropdown options={sortDropdownOptions} title="Sort by" />
             </div>
           </>
         )}

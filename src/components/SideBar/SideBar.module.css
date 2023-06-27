@@ -153,36 +153,6 @@
   margin-bottom: 8px;
 }
 
-.sort .icon {
-  fill: #ffffffb3;
-  height: 17px;
-  width: 17px;
-}
-
-.sort {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-}
-
-.sort p {
-  color: #ffffffb2;
-  font-size: 13px;
-}
-
-.sort:hover {
-  cursor: pointer;
-}
-
-.sort:hover p {
-  color: white;
-}
-
-.sort:hover .icon {
-  fill: white;
-}
-
 .playlists {
   display: flex;
   flex-direction: column;

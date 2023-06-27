@@ -22,6 +22,7 @@ import { ReactComponent as Arrow } from '../../assets/icons/arrow.svg';
 import { ReactComponent as DropdownArrow } from '../../assets/icons/dropdownArrow.svg';
 import { ReactComponent as Cross } from '../../assets/icons/cross.svg';
 import { ReactComponent as SimpleArrow } from '../../assets/icons/simpleArrow.svg';
+import { ReactComponent as Check } from '../../assets/icons/check.svg';
 
 const Icons = {
   SpotifyLogo,
@@ -48,6 +49,7 @@ const Icons = {
   DropdownArrow,
   Cross,
   SimpleArrow,
+  Check,
 };
 
 export default Icons;

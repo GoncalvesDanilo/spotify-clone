@@ -89,3 +89,10 @@ export const secondaryFilters: { parent: string; filters: Array<Filter> } = {
     { label: 'By you', value: 'you' },
   ],
 };
+
+export const sortDropdownOptions: Array<{ label: string; value: string }> = [
+  { label: 'Recents', value: 'recents' },
+  { label: 'Recently Added', value: 'recently-added' },
+  { label: 'Alphabetical', value: 'alphabetical' },
+  { label: 'Creators', value: 'creators' },
+];
