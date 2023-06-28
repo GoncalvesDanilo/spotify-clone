@@ -9,3 +9,7 @@
   max-height: var(--pages-height);
   display: flex;
 }
+
+.app .page {
+  padding-left: 8px;
+}

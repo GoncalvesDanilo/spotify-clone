@@ -9,7 +9,9 @@ function App() {
     <div className={styles.app}>
       <div className={styles.pages}>
         <SideBar />
-        <Search />
+        <div className={styles.page}>
+          <Search />
+        </div>
       </div>
       <Footer />
     </div>

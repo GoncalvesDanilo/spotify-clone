@@ -9,6 +9,7 @@
 
 .sidebar.collapsed {
   max-width: 72px;
+  min-width: unset;
 }
 
 .logo {
