@@ -7,9 +7,10 @@ type InputProps = {
   placeholder?: string;
   onChange?: (value: string) => void;
   defaultValue?: string;
+  className?: string;
 };
 
-const Input = ({ type, placeholder, onChange, defaultValue }: InputProps) => {
+const Input = ({ type, placeholder, onChange, defaultValue, className }: InputProps) => {
   const [value, setValue] = useState(defaultValue || '');
   const [isFocused, setIsFocused] = useState(false);
 
@@ -25,7 +26,13 @@ const Input = ({ type, placeholder, onChange, defaultValue }: InputProps) => {
   };
 
   return (
-    <div className={styles.container + (isFocused ? ' ' + styles.focused : '')}>
+    <div
+      className={
+        styles.container +
+        (isFocused ? ' ' + styles.focused : '') +
+        (className ? ' ' + className : '')
+      }
+    >
       <Icons.Search className={styles.icon + ' ' + styles.search} />
       <input
         type={type}

@@ -4,12 +4,16 @@
   margin-left: 8px;
   background-color: #121212;
   border-radius: 8px;
+  display: flex;
+  flex-direction: column;
 }
 
 .search .header {
   display: flex;
-  padding: 8px 24px 16px;
+  padding: 8px 32px 16px 24px;
   gap: 8px;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 .header .history {
@@ -41,11 +45,82 @@
   cursor: pointer;
 }
 
+.header .input {
+  max-width: 55%;
+}
+
+.header .userWidget {
+  height: 32px;
+  width: 32px;
+  background-color: black;
+  border-radius: 50%;
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.userWidget .profilePhoto {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #525252;
+}
+
 .search .categories {
-  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  padding: 0 24px 24px;
+  overflow: auto;
+}
+
+.categories::-webkit-scrollbar {
+  width: 8px;
+}
+
+.categories:hover::-webkit-scrollbar-thumb {
+  background: #ffffff4d;
+  border-radius: 10px;
 }
 
 .search .categories h1 {
   color: white;
-  font-size: 26px;
+  font-size: 22px;
+  margin: 20px 0 24px;
+}
+
+.search .categories .container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+
+.search .categories .category {
+  height: 207px;
+  width: 207px;
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+}
+
+.search .categories .category:hover {
+  cursor: pointer;
+}
+
+.search .categories .category p {
+  color: white;
+  padding: 18px 15px;
+  font-size: 23px;
+  font-weight: 700;
+}
+
+.search .categories .category img {
+  height: 100px;
+  width: 100px;
+  position: absolute;
+  box-shadow: 0 2px 4px 0 #00000033;
+  transform: rotate(25deg) translate(18%,-2%);
+  bottom: 0;
+  right: 0;
 }
