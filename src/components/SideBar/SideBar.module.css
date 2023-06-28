@@ -4,6 +4,7 @@
   background-color: black;
   height: 100%;
   max-width: 330px;
+  min-width: 330px;
 }
 
 .sidebar.collapsed {
