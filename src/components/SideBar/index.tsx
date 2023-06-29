@@ -25,7 +25,6 @@ const SideBar = () => {
     if (!resizeBarPressed) return;
     const minWidth = 280;
     const maxWidth = 420;
-    console.log(sideBarWidth + event.movementX);
 
     if (sideBarWidth + event.movementX >= minWidth && sideBarWidth + event.movementX <= maxWidth) {
       setSideBarWidth(sideBarWidth + event.movementX);
