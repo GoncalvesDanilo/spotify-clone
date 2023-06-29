@@ -91,17 +91,18 @@
 }
 
 .search .categories .container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 18px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  grid-auto-rows: 1fr;
+  gap: 24px;
 }
 
 .search .categories .category {
-  height: 207px;
-  width: 207px;
+  min-width: 150px;
   border-radius: 8px;
   position: relative;
   overflow: hidden;
+  aspect-ratio: 1;
 }
 
 .search .categories .category:hover {
