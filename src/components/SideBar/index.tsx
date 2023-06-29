@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState, MouseEvent } from 'react';
 import Icons from '../Icons';
 import FilterArray from '../FilterArray';
 import CollapsibleInput from '../CollapsibleInput';
@@ -9,13 +9,46 @@ import styles from './SideBar.module.css';
 
 const SideBar = () => {
   const [collapsed, setCollapsed] = useState(false);
+  const [sideBarWidth, setSideBarWidth] = useState(330);
+  const [resizeBarPressed, setResizeBarPressed] = useState(false);
 
   const onClickLibrary = () => {
     setCollapsed(!collapsed);
+    if (collapsed) {
+      setSideBarWidth(330);
+    } else {
+      setSideBarWidth(72);
+    }
   };
 
+  const handleResizeBarDrag = (event: MouseEvent) => {
+    if (!resizeBarPressed) return;
+    const minWidth = 280;
+    const maxWidth = 420;
+    console.log(sideBarWidth + event.movementX);
+
+    if (sideBarWidth + event.movementX >= minWidth && sideBarWidth + event.movementX <= maxWidth) {
+      setSideBarWidth(sideBarWidth + event.movementX);
+    }
+  };
+
+  const handleMouseUp = () => {
+    setResizeBarPressed(false);
+  };
+
+  useEffect(() => {
+    window.addEventListener('mouseup', handleMouseUp);
+    return () => {
+      window.removeEventListener('mouseup', handleMouseUp);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
-    <div className={styles.sidebar + ' ' + (collapsed ? styles.collapsed : '')}>
+    <div
+      className={styles.sidebar + ' ' + (collapsed ? styles.collapsed : '')}
+      style={{ width: sideBarWidth }}
+    >
       <div className={styles.section}>
         <div className={styles.option}>
           <Icons.HouseActive className={styles.icon} />
@@ -70,6 +103,13 @@ const SideBar = () => {
           ))}
         </div>
       </div>
+      <div
+        className={styles.resize}
+        onMouseDown={() => {
+          setResizeBarPressed(true);
+        }}
+        onMouseMove={(e) => handleResizeBarDrag(e)}
+      ></div>
     </div>
   );
 };

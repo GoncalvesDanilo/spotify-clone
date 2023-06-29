@@ -1,6 +1,7 @@
 .app {
   height: 100%;
   background-color: black;
+  user-select: none;
 }
 
 .app .pages {
