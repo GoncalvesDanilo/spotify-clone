@@ -4,6 +4,8 @@ import FilterArray from '../FilterArray';
 import CollapsibleInput from '../CollapsibleInput';
 import Dropdown from '../Dropdown';
 import { playlists, filters, secondaryFilters, sortDropdownOptions } from './helper';
+import { useNavigate } from 'react-router-dom';
+import { routes } from '../../routes';
 
 import styles from './SideBar.module.css';
 
@@ -11,6 +13,12 @@ const SideBar = () => {
   const [collapsed, setCollapsed] = useState(false);
   const [sideBarWidth, setSideBarWidth] = useState(330);
   const [resizeBarPressed, setResizeBarPressed] = useState(false);
+  const navigate = useNavigate();
+
+  const onClickPage = (routeName: string) => {
+    const route = routes.find((route) => route.name === routeName);
+    if (route) navigate(route.path);
+  };
 
   const onClickLibrary = () => {
     setCollapsed(!collapsed);
@@ -49,11 +57,11 @@ const SideBar = () => {
       style={{ width: sideBarWidth }}
     >
       <div className={styles.section}>
-        <div className={styles.option}>
+        <div className={styles.option} onClick={() => onClickPage('home')}>
           <Icons.HouseActive className={styles.icon} />
           {!collapsed && <p>Home</p>}
         </div>
-        <div className={styles.option}>
+        <div className={styles.option} onClick={() => onClickPage('search')}>
           <Icons.Search className={styles.icon} />
           {!collapsed && <p>Search</p>}
         </div>

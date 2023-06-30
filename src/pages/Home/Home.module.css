@@ -1,0 +1,204 @@
+.home {
+  width: 100%;
+  height: 100%;
+  background-color: #121212;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+}
+
+.home > .header {
+  display: flex;
+  padding: 16px 24px;
+  gap: 8px;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.header .history {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.history .action {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #000000b3;
+  border-radius: 50%;
+}
+
+.history .action .icon {
+  fill: white;
+}
+
+.history .action:first-of-type .icon {
+  transform: rotate(180deg);
+}
+
+.history .action:hover {
+  cursor: pointer;
+}
+
+.header .userWidget {
+  height: 32px;
+  width: 32px;
+  background-color: black;
+  border-radius: 50%;
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.userWidget .profilePhoto {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #525252;
+}
+
+.home .content {
+  padding: 0 24px;
+  overflow-y: auto;
+}
+
+.home .content h1 {
+  margin: 2px 0 24px;
+  color: white;
+  font-size: 30px;
+}
+
+.home .mainCards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+  grid-auto-rows: 1fr;
+  row-gap: 12px;
+  column-gap: 24px;
+  justify-content: space-between;
+}
+
+.mainCards .card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  height: 80px;
+  background-color: #ffffff1a;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.mainCards .card img {
+  height: 80px;
+  width: 80px;
+  border-radius: 4px 0 0 4px;
+}
+
+.mainCards .card p {
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.mainCards .card .play {
+  margin: 0 16px 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  width: 50px;
+}
+
+.mainCards .card .play .button {
+  width: 48px;
+  height: 48px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background-color: #1ed760;
+  box-shadow: 0 8px 8px #0000004d;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.card .play:hover .button {
+  height: 50px;
+  width: 50px;
+}
+
+.mainCards .card .play .icon {
+  height: 19px;
+  width: 19px;
+}
+
+.mainCards .card:hover {
+  cursor: pointer;
+  background-color: #ffffff33;
+}
+
+.mainCards .card:hover .play .button {
+  display: flex;
+}
+
+.recommendation {
+  width: 100%;
+  margin-top: 40px;
+}
+
+.recommendation .header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 24px;
+}
+
+.recommendation .header h2,
+.recommendation .header p {
+  margin: 0;
+}
+
+.recommendation .header h2 {
+  color: white;
+  font-size: 22px;
+}
+
+.recommendation .header p {
+  color: #b3b3b3;
+}
+
+.recommendation .cards {
+  display: flex;
+  gap: 24px;
+}
+
+.recommendation .card {
+  padding: 16px;
+  background-color: #181818;
+  border-radius: 8px;
+  height: 288px;
+}
+
+.recommendation .card img {
+  height: 200px;
+  width: 200px;
+  border-radius: 4px;
+}
+
+.recommendation .card h4 {
+  font-size: 15px;
+  margin: 14px 0 12px;
+  color: white;
+}
+
+.recommendation .card p {
+  font-size: 14px;
+  color: #a7a7a7;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  overflow: hidden;
+}
