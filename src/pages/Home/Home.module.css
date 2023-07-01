@@ -61,7 +61,7 @@
   background-color: #525252;
 }
 
-.home .content {
+.home > .content {
   padding: 0 24px;
   overflow-y: auto;
 }
@@ -112,7 +112,8 @@
   width: 50px;
 }
 
-.mainCards .card .play .button {
+.mainCards .card .play .button,
+.recommendation .card .play .button {
   width: 48px;
   height: 48px;
   display: none;
@@ -121,12 +122,12 @@
   background-color: #1ed760;
   box-shadow: 0 8px 8px #0000004d;
   border-radius: 50%;
-  transition: all 0.3s ease;
 }
 
 .card .play:hover .button {
   height: 50px;
   width: 50px;
+  background-color: #1fdf64;
 }
 
 .mainCards .card .play .icon {
@@ -146,11 +147,12 @@
 .recommendation {
   width: 100%;
   margin-top: 40px;
+  overflow: hidden;
 }
 
 .recommendation .header {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: space-between;
   padding-bottom: 24px;
 }
@@ -167,23 +169,44 @@
 
 .recommendation .header p {
   color: #b3b3b3;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.recommendation .header h2:hover,
+.recommendation .header p:hover {
+  cursor: pointer;
+  text-decoration: underline;
 }
 
 .recommendation .cards {
-  display: flex;
-  gap: 24px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  column-gap: 12px;
+  height: 280px;
 }
 
 .recommendation .card {
-  padding: 16px;
   background-color: #181818;
   border-radius: 8px;
-  height: 288px;
+  height: 100%;
+  width: 190px;
+}
+
+.recommendation .card:hover {
+  cursor: pointer;
+  background-color: #282828;
+}
+
+.recommendation .card .content {
+  display: flex;
+  flex-direction: column;
+  margin: 16px;
 }
 
 .recommendation .card img {
-  height: 200px;
-  width: 200px;
+  height: 160px;
+  width: 160px;
   border-radius: 4px;
 }
 
@@ -201,4 +224,25 @@
   -webkit-box-orient: vertical;
   display: -webkit-box;
   overflow: hidden;
+}
+
+.recommendation .card .imageContainer {
+  position: relative;
+  height: fit-content;
+  width: fit-content;
+}
+
+.recommendation .card .imageContainer .play {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  width: 50px;
+  top: 105px;
+  right: 5px;
+}
+
+.recommendation .card:hover .play .button {
+  display: flex;
 }

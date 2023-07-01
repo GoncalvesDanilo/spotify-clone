@@ -1,6 +1,6 @@
 import Icons from '../../components/Icons';
 import styles from './Home.module.css';
-import { mainCards, recommendations } from './helper';
+import { getDayPeriod, mainCards, recommendations } from './helper';
 
 const Home = () => {
   return (
@@ -19,7 +19,7 @@ const Home = () => {
         </div>
       </header>
       <div className={styles.content}>
-        <h1>Good afternoon</h1>
+        <h1>Good {getDayPeriod()}</h1>
         <div className={styles.mainCards}>
           {mainCards.map((card) => (
             <div className={styles.card}>
@@ -42,9 +42,18 @@ const Home = () => {
             <div className={styles.cards}>
               {recommendation.cards.map((card) => (
                 <div className={styles.card}>
-                  <img src={card.image} alt={card.title} className={styles.image} />
-                  <h4>{card.title}</h4>
-                  <p>{card.details}</p>
+                  <div className={styles.content}>
+                    <div className={styles.imageContainer}>
+                      <img src={card.image} alt={card.title} />
+                      <div className={styles.play}>
+                        <div className={styles.button}>
+                          <Icons.Play className={styles.icon} />
+                        </div>
+                      </div>
+                    </div>
+                    <h4>{card.title}</h4>
+                    <p>{card.details}</p>
+                  </div>
                 </div>
               ))}
             </div>

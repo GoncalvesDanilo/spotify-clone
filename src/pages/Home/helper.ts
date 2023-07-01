@@ -401,8 +401,7 @@ export const recommendations = [
       {
         image: 'https://i.scdn.co/image/ab67706f00000002ad367da51a24fc8deb326ed7',
         title: 'Esquenta Sertanejo',
-        details:
-          'O melhor do sertanejo em uma só playlist! Foto: Lauana Prado, Guilherme & Benuto',
+        details: 'O melhor do sertanejo em uma só playlist! Foto: Lauana Prado, Guilherme & Benuto',
       },
       {
         image: 'https://i.scdn.co/image/ab67706f00000002d971c6c23114fc7636dc23eb',
@@ -589,3 +588,34 @@ export const recommendations = [
     ],
   },
 ];
+
+export const dayPeriods = [
+  {
+    label: 'morning',
+    from: 5,
+    to: 12,
+  },
+  {
+    label: 'afternoon',
+    from: 12,
+    to: 18,
+  },
+  {
+    label: 'evening',
+    from: 18,
+    to: 23,
+  },
+  {
+    label: 'night',
+    from: 0,
+    to: 5,
+  },
+];
+
+export const getDayPeriod = (): string => {
+  let dayPeriod = '';
+  const currentTime = new Date();
+  const hour = currentTime.getHours();
+  dayPeriod = dayPeriods.find((period) => period.from <= hour && hour < period.to)?.label || '';
+  return dayPeriod;
+};
